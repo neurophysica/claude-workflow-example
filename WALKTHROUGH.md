@@ -1,0 +1,51 @@
+# Walkthrough: building `unitconv` with the CC↔CCh workflow
+
+This is the narrated build of the toy project in this repo. It shows one full turn of the loop
+per step: **design in Claude Chat → save a spec → execute in Claude Code → review → commit**.
+
+> ⚠️ The **Claude Chat** turns below are *illustrative reconstructions* — written to be
+> didactic, not a verbatim log. The **Claude Code** side (diffs, tests, commits, tags) is
+> **real**: every step is a git tag you can check out or diff.
+
+## The cast
+
+- **🧑 Human** — sets direction, reviews diffs, approves commits.
+- **💬 Claude Chat (CC)** — designs, writes specs, reviews. *No filesystem access.*
+- **⌨️ Claude Code (CCh)** — executes specs, runs tests, commits. *Has the repo.*
+- **📁 The repo** — the shared memory. Specs and results live here, not in either chat.
+
+## The loop, in one line
+
+`design (CC)` → `spec file in docs/dev/specs/` → `"implement it" (CCh)` → `diff + tests` →
+`human approves` → `commit + tag` → repeat.
+
+## The steps
+
+| Step | Goal | Spec | Tag | Commit |
+|---|---|---|---|---|
+| 1 | Core length conversion | [spec_01](docs/dev/specs/spec_01_core_length.md) | `step_01` | [`0b862c2`](https://github.com/neurophysica/claude-workflow-example/commit/0b862c2) |
+| 2 | Command-line interface | [spec_02](docs/dev/specs/spec_02_cli.md) | `step_02` | [`874e4c6`](https://github.com/neurophysica/claude-workflow-example/commit/874e4c6) |
+| 3 | Mass units + typed errors | [spec_03](docs/dev/specs/spec_03_mass_and_errors.md) | `step_03` | [`7784667`](https://github.com/neurophysica/claude-workflow-example/commit/7784667) |
+
+Read them in order:
+
+1. **[Step 1 — core length conversion](docs/dev/walkthrough/step_01.md)**
+2. **[Step 2 — the CLI](docs/dev/walkthrough/step_02.md)**
+3. **[Step 3 — mass units & typed errors](docs/dev/walkthrough/step_03.md)**
+
+## What to notice as you read
+
+- The **spec is the unit of work** — the human points Code at a *file*, never pastes the task.
+- Every spec is **kept** in `docs/dev/specs/` as provenance (see the spec-persistence decision
+  in [DECISIONS.md](docs/dev/DECISIONS.md)).
+- Code **stops before committing** and waits for approval — the human-in-the-loop gate from
+  [CLAUDE.md](CLAUDE.md).
+- Design decisions born in Chat get **promoted to `DECISIONS.md`** so they survive the session.
+
+## Try it yourself
+
+```bash
+python -m unitconv 10 km mi                 # -> 6.21371 mi
+uv run --with pytest python -m pytest       # -> 8 passed
+git checkout step_01                         # rewind to the end of Step 1
+```
