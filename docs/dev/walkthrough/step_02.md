@@ -3,7 +3,7 @@
 **Goal:** wrap `convert()` in a `python -m unitconv` CLI, with tests.
 **Spec:** [spec_02_cli.md](../specs/spec_02_cli.md) ·
 **Tag:** `step_02` ·
-**Commit:** [`874e4c6`](https://github.com/neurophysica/claude-workflow-example/commit/874e4c6)
+**Commit:** [`e14429d`](https://github.com/neurophysica/claude-workflow-example/commit/e14429d)
 
 ## 1. Design — in Claude Chat 💬
 

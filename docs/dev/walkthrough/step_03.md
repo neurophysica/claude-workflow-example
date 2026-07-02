@@ -4,7 +4,7 @@
 and log the design decision.
 **Spec:** [spec_03_mass_and_errors.md](../specs/spec_03_mass_and_errors.md) ·
 **Tag:** `step_03` ·
-**Commit:** [`7784667`](https://github.com/neurophysica/claude-workflow-example/commit/7784667)
+**Commit:** [`05080e9`](https://github.com/neurophysica/claude-workflow-example/commit/05080e9)
 
 ## 1. Design — in Claude Chat 💬
 

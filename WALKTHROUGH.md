@@ -32,9 +32,9 @@ them with **🧑 Handoff** callouts.
 | Step | Goal | Spec | Tag | Commit |
 |---|---|---|---|---|
 | 0 | Set up the two surfaces | — | — | — |
-| 1 | Core length conversion | [spec_01](docs/dev/specs/spec_01_core_length.md) | `step_01` | [`0b862c2`](https://github.com/neurophysica/claude-workflow-example/commit/0b862c2) |
-| 2 | Command-line interface | [spec_02](docs/dev/specs/spec_02_cli.md) | `step_02` | [`874e4c6`](https://github.com/neurophysica/claude-workflow-example/commit/874e4c6) |
-| 3 | Mass units + typed errors | [spec_03](docs/dev/specs/spec_03_mass_and_errors.md) | `step_03` | [`7784667`](https://github.com/neurophysica/claude-workflow-example/commit/7784667) |
+| 1 | Core length conversion | [spec_01](docs/dev/specs/spec_01_core_length.md) | `step_01` | [`196658b`](https://github.com/neurophysica/claude-workflow-example/commit/196658b) |
+| 2 | Command-line interface | [spec_02](docs/dev/specs/spec_02_cli.md) | `step_02` | [`e14429d`](https://github.com/neurophysica/claude-workflow-example/commit/e14429d) |
+| 3 | Mass units + typed errors | [spec_03](docs/dev/specs/spec_03_mass_and_errors.md) | `step_03` | [`05080e9`](https://github.com/neurophysica/claude-workflow-example/commit/05080e9) |
 
 Read them in order:
 

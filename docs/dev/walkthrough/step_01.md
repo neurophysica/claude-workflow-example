@@ -3,7 +3,7 @@
 **Goal:** a `convert()` for length units, with tests. No CLI yet.
 **Spec:** [spec_01_core_length.md](../specs/spec_01_core_length.md) ·
 **Tag:** `step_01` ·
-**Commit:** [`0b862c2`](https://github.com/neurophysica/claude-workflow-example/commit/0b862c2)
+**Commit:** [`196658b`](https://github.com/neurophysica/claude-workflow-example/commit/196658b)
 
 *(Assumes [Step 0](step_00_setup.md) is done: Code is open on the repo, and Chat has the seed
 files uploaded.)*
