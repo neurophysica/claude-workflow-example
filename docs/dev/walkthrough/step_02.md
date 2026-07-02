@@ -7,6 +7,8 @@
 
 ## 1. Design — in Claude Chat 💬
 
+*(You've just re-uploaded the updated `ROADMAP.md` from Step 1, so Chat knows Step 1 is done.)*
+
 > **🧑 → 💬:** Now give it a command line: `unitconv 10 km mi`. Spec it.
 >
 > **💬:** The CLI should stay a *thin* wrapper — all the logic already lives in `convert()`, so
@@ -17,7 +19,9 @@
 >
 > *(💬 emits `spec_02_cli.md`.)*
 
-**🧑 saves it** and tells Claude Code: *"implement `docs/dev/specs/spec_02_cli.md`."*
+> **🧑 Handoff — Chat → repo → Code**
+> 1. Download the spec, save it as `docs/dev/specs/spec_02_cli.md`.
+> 2. In Claude Code: `implement docs/dev/specs/spec_02_cli.md`
 
 ## 2. Execute — in Claude Code ⌨️
 
@@ -49,6 +53,9 @@ Step 2: command-line interface (impl of spec_02)
 
 → See exactly what changed since Step 1:
 [`compare/step_01...step_02`](https://github.com/neurophysica/claude-workflow-example/compare/step_01...step_02)
+
+> **🧑 Handoff — repo → Chat**
+> Re-upload `docs/ROADMAP.md` (Step 2 ticked) to Chat before designing Step 3.
 
 ## What just happened
 

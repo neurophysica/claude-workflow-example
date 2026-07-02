@@ -9,9 +9,12 @@ per step: **design in Claude Chat → save a spec → execute in Claude Code →
 
 ## The cast
 
-- **🧑 Human** — sets direction, reviews diffs, approves commits.
-- **💬 Claude Chat (CC)** — designs, writes specs, reviews. *No filesystem access.*
-- **⌨️ Claude Code (CCh)** — executes specs, runs tests, commits. *Has the repo.*
+- **🧑 Human** — the hands: sets direction, and does the manual glue — **uploads files to
+  Chat, saves specs into the repo, points Code at them**, reviews diffs, approves commits.
+- **💬 Claude Chat (CC)** — designs, writes specs, reviews. *No filesystem access — you upload
+  files to it.*
+- **⌨️ Claude Code (CCh)** — executes specs, runs tests, commits. *Has the repo — no uploads
+  needed.*
 - **📁 The repo** — the shared memory. Specs and results live here, not in either chat.
 
 ## The loop, in one line
@@ -19,16 +22,23 @@ per step: **design in Claude Chat → save a spec → execute in Claude Code →
 `design (CC)` → `spec file in docs/dev/specs/` → `"implement it" (CCh)` → `diff + tests` →
 `human approves` → `commit + tag` → repeat.
 
+The 🧑 actions between surfaces — **which files you upload, when you save a spec, how you point
+Code at it, and re-uploading changed files to keep Chat current** — are the workflow's plumbing.
+**[Step 0](docs/dev/walkthrough/step_00_setup.md)** lays them out, and every step below marks
+them with **🧑 Handoff** callouts.
+
 ## The steps
 
 | Step | Goal | Spec | Tag | Commit |
 |---|---|---|---|---|
+| 0 | Set up the two surfaces | — | — | — |
 | 1 | Core length conversion | [spec_01](docs/dev/specs/spec_01_core_length.md) | `step_01` | [`0b862c2`](https://github.com/neurophysica/claude-workflow-example/commit/0b862c2) |
 | 2 | Command-line interface | [spec_02](docs/dev/specs/spec_02_cli.md) | `step_02` | [`874e4c6`](https://github.com/neurophysica/claude-workflow-example/commit/874e4c6) |
 | 3 | Mass units + typed errors | [spec_03](docs/dev/specs/spec_03_mass_and_errors.md) | `step_03` | [`7784667`](https://github.com/neurophysica/claude-workflow-example/commit/7784667) |
 
 Read them in order:
 
+0. **[Step 0 — set up the two surfaces](docs/dev/walkthrough/step_00_setup.md)** (uploads, opening the repo in Code)
 1. **[Step 1 — core length conversion](docs/dev/walkthrough/step_01.md)**
 2. **[Step 2 — the CLI](docs/dev/walkthrough/step_02.md)**
 3. **[Step 3 — mass units & typed errors](docs/dev/walkthrough/step_03.md)**

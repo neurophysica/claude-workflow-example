@@ -19,7 +19,9 @@ and log the design decision.
 >
 > *(💬 emits `spec_03_mass_and_errors.md`, including a "log the decision" step.)*
 
-**🧑 saves it** and tells Claude Code: *"implement `docs/dev/specs/spec_03_mass_and_errors.md`."*
+> **🧑 Handoff — Chat → repo → Code**
+> 1. Download the spec, save it as `docs/dev/specs/spec_03_mass_and_errors.md`.
+> 2. In Claude Code: `implement docs/dev/specs/spec_03_mass_and_errors.md`
 
 ## 2. Execute — in Claude Code ⌨️
 
@@ -59,6 +61,10 @@ Step 3: mass units, typed errors, incompatibility check (impl of spec_03)
 [`compare/step_02...step_03`](https://github.com/neurophysica/claude-workflow-example/compare/step_02...step_03) ·
 → The logged decision:
 [`DECISIONS.md`](../DECISIONS.md)
+
+> **🧑 Handoff — repo → Chat**
+> This step changed **two** durable files — re-upload both `docs/dev/DECISIONS.md` and
+> `docs/ROADMAP.md` so Chat's context reflects the new decision and the completed roadmap.
 
 ## What just happened
 

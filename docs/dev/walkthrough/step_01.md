@@ -5,6 +5,9 @@
 **Tag:** `step_01` ·
 **Commit:** [`0b862c2`](https://github.com/neurophysica/claude-workflow-example/commit/0b862c2)
 
+*(Assumes [Step 0](step_00_setup.md) is done: Code is open on the repo, and Chat has the seed
+files uploaded.)*
+
 ## 1. Design — in Claude Chat 💬
 
 > **🧑 → 💬:** Let's start the unit converter with the smallest useful core: length
@@ -19,10 +22,15 @@
 >
 > *(💬 emits `spec_01_core_length.md` as a downloadable file.)*
 
-**🧑 saves it** to `docs/dev/specs/` and tells Claude Code: *"implement
-`docs/dev/specs/spec_01_core_length.md`."*
+> **🧑 Handoff — Chat → repo → Code**
+> 1. Download the spec Chat produced.
+> 2. Save it as `docs/dev/specs/spec_01_core_length.md`.
+> 3. In Claude Code (open on the repo since Step 0), say:
+>    `implement docs/dev/specs/spec_01_core_length.md`
 
 ## 2. Execute — in Claude Code ⌨️
+
+Code reads the spec file from disk (you gave it the path, not the text) and implements it:
 
 > **⌨️:** Created the `unitconv` package with the factors-to-metres model from the spec:
 
@@ -53,9 +61,13 @@ Step 1: core length conversion (impl of spec_01)
 
 → Browse the repo as of this step: [`tree/step_01`](https://github.com/neurophysica/claude-workflow-example/tree/step_01)
 
+> **🧑 Handoff — repo → Chat**
+> Re-upload `docs/ROADMAP.md` (Step 1 is now ticked) to Chat so its view matches the repo before
+> you design Step 2.
+
 ## What just happened
 
-- The **spec was the unit of execution** — a file, not pasted text.
+- The **spec was the unit of execution** — you handed Code a *file path*, not pasted text.
 - The **base-unit design idea** came from Chat here; it gets *generalized and logged* as a
   formal decision in [Step 3](step_03.md).
 - Code **did not commit on its own** — it surfaced the diff and waited (the gate from
