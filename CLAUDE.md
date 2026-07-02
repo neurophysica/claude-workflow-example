@@ -2,32 +2,49 @@
 
 Guidance for Claude Code (and humans) working in this repo. Read this first each session.
 
-<!-- Created from claude-workflow-template. Fill in every <!-- FILL IN --> below, then delete this line. -->
-
 ## What this project is
 
-<!-- FILL IN: one or two paragraphs — what the project is, its goal, and its main deliverables. -->
+A **worked example** of the Claude Chat ↔ Claude Code workflow (see
+[docs/dev/WORKFLOW.md](docs/dev/WORKFLOW.md)). The toy project is `unitconv`, a tiny
+command-line **unit converter** — deliberately trivial so the focus stays on the *workflow*,
+not the code. The project was built one spec at a time; the narrated journey is in
+[WALKTHROUGH.md](WALKTHROUGH.md).
 
 ## Layout
 
-<!-- FILL IN: the directory layout and what lives where. -->
-
-Durable dev-process state lives under `docs/dev/` — see [WORKFLOW.md](docs/dev/WORKFLOW.md)
-(how the two Claude surfaces coordinate) and [DECISIONS.md](docs/dev/DECISIONS.md) (locked
-decisions).
+```
+unitconv/            # the package
+  __init__.py
+  core.py            # convert(): the conversion logic
+  __main__.py        # `python -m unitconv` CLI
+tests/               # pytest tests
+docs/
+  ROADMAP.md         # progress tracker
+  dev/
+    WORKFLOW.md      # how the two Claude surfaces coordinate
+    DECISIONS.md     # locked decisions (workflow baseline + project decisions)
+    specs/           # the specs this project was built from
+    walkthrough/     # per-step annotated Chat/Code transcripts
+WALKTHROUGH.md       # start here: the narrated build
+```
 
 ## Conventions
 
-<!-- FILL IN: project-specific conventions (style, testing, structure, naming). -->
+- Python ≥ 3.10, standard library only (no runtime dependencies).
+- Tests are **pytest**; `testpaths = ["tests"]`.
+- Every spec that built this repo is kept under `docs/dev/specs/` as provenance.
 
 ## Environment
 
-<!-- FILL IN: how to set up and run the project (language, package manager, how to run tests). -->
+```bash
+# Run the tests with an ephemeral pytest (no project install needed):
+uv run --with pytest python -m pytest
+
+# Run the CLI:
+python -m unitconv 10 km mi
+```
 
 ## Living documents (keep in sync as we work)
-
-These files are **not** write-once — update them as the project evolves, in the *same* piece
-of work that makes one stale.
 
 | Document | Purpose | Update when… |
 |---|---|---|
@@ -41,7 +58,6 @@ of work that makes one stale.
 
 - **Wait for the human before committing.** Do not run `git commit` or push until explicitly
   asked — the human reviews the diff first. Prepare/stage and surface the change, then wait.
-  This overrides any "commit when the task is done" default.
 - **Commit sign-off is solo — do NOT add `Co-Authored-By` or any co-author trailer.**
-  Use exactly: `Signed-off-by: <!-- FILL IN: Your Name <you@example.com> -->`
+  Use exactly: `Signed-off-by: Wisam Reid <wisam@g.harvard.edu>`
 - Default branch is `main`.
