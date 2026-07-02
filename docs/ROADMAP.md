@@ -9,12 +9,12 @@ Legend: `[ ]` not started · `[~]` in progress · `[x]` done.
 
 - [x] Step 1 — core length conversion (`convert()`) + tests
 - [x] Step 2 — `python -m unitconv` CLI + tests
-- [ ] Step 3 — add mass units, typed errors, incompatibility check
+- [x] Step 3 — add mass units, typed errors, incompatibility check
 
 ## Now / next
 
-Step 3: add mass units, replace the plain `ValueError` with typed exceptions, and reject
-conversions between incompatible dimensions.
+Example complete — all three steps landed. See [WALKTHROUGH.md](../WALKTHROUGH.md) for the
+narrated build.
 
 ## Notes / open questions
 

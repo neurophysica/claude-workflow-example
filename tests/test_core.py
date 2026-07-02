@@ -1,12 +1,21 @@
-"""Tests for unitconv.core.convert (length units)."""
+"""Tests for unitconv.core.convert (length and mass units)."""
 
 import pytest
 
-from unitconv.core import convert
+from unitconv.core import IncompatibleUnitsError, convert
 
 
 def test_km_to_mi():
     assert convert(10, "km", "mi") == pytest.approx(6.2137119, rel=1e-6)
+
+
+def test_kg_to_lb():
+    assert convert(1, "kg", "lb") == pytest.approx(2.2046226, rel=1e-6)
+
+
+def test_incompatible_dimensions():
+    with pytest.raises(IncompatibleUnitsError):
+        convert(1, "kg", "m")
 
 
 def test_identity():

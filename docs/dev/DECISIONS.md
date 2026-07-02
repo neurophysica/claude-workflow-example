@@ -9,6 +9,16 @@ Add project-specific decisions as dated sections **above** the "Workflow baselin
 
 ---
 
+## 2026-07-02 — Conversion model
+
+### Convert via a base unit per dimension
+**Decision:** Each dimension (length, mass, …) stores its units as a single factor to that
+dimension's base unit (metres, kilograms). A conversion is `value * factor[from] / factor[to]`.
+**Rationale:** O(1) storage per unit and trivial extension to new dimensions, versus an N×N
+table of pairwise factors that grows quadratically and duplicates information.
+
+---
+
 ## Workflow baseline (from claude-workflow-template)
 
 These decisions ship with the template and define the CC↔CCh workflow. Keep them unless you
